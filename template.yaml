@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Surf prediction MicroService in Python3.7
+Resources:
+  SurfPredictor:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: src/index.surf_predictor
+      Runtime: python3.7
+      CodeUri: .
+      Description: Surf prediction MicroService in Python3.7
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::390349200513:role/service-role/MicroService'
+      Tags:
+        'lambda-console:blueprint': dynamodb-process-stream-python
